@@ -30,6 +30,6 @@ def compileTask5():
 
 # compileTask1()
 # compileTask2()
-compileTask3()
-# compileTask4()
+# compileTask3()
+compileTask4()
 # compileTask5()
