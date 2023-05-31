@@ -12,6 +12,7 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 #include<stdbool.h>
 
 int main() {
+    
     printf("Enter your score: ");
     float score;    char str[10];   bool is_number=false;  
     

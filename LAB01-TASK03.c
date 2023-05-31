@@ -8,27 +8,29 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 
 */
 
-
 #include <stdio.h>
-#include<stdbool.h>
+#include <stdbool.h>
+#define SCNd64 "I64d"
+#define PRId64 "I64d"
 #define ll long long int
 
-int main(){
+int main() {
     printf("Enter a positive integer: ");
-    ll num, factorial=1;
+    ll num, factorial = 1;
     bool isNegative = false;
-    scanf("%lld", &num);
+    scanf("%" SCNd64, &num);
 
-    isNegative = (num<0 ? true:false);
-    for(ll i = 1; i <= num; i++){
+    
+    for (ll i = 1; i <= num; i++) {
         factorial *= i;
     }
 
-
-    if(isNegative){
-        printf("Please enter a positive integer.Please try again.\n");
-    }else{
-        printf("Number: %lld\nFactorial: %lld\n", num, factorial);
+    isNegative = (num < 0 ? true : false);
+    if (isNegative) {
+        printf("Please enter a positive integer. Please try again.\n");
+    } else {
+        printf("Number: %"PRId64"\n", num);
+        printf("Factorial: %"PRId64"\n", factorial);
     }
 
     return 0;
