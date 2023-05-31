@@ -1,5 +1,5 @@
 # pylint: disable=all
-import os
+import os,sys
 
 def compileTask1():
     os.system("gcc -w LAB01-TASK01.c -o LAB01-TASK01.exe && LAB01-TASK01.exe")
@@ -27,9 +27,23 @@ def compileTask5():
         os.remove("LAB01-TASK05.exe")
 
 
+def main(args=None):
+    args = args or sys.argv[1:]
 
-# compileTask1()
-# compileTask2()
-# compileTask3()
-# compileTask4()
-compileTask5()
+    if args:
+        if args[0] == '--1':
+            compileTask1()
+        elif args[0] == '--2':
+            compileTask2()
+        elif args[0] == '--3':
+            compileTask3()
+        elif args[0] == '--4':
+            compileTask4()
+        elif args[0] == '--5':
+            compileTask5()
+        else:
+            print("Usage: python script.py <task_number>")
+            return
+
+
+main()
