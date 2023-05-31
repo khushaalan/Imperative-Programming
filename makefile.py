@@ -27,6 +27,14 @@ def compileTask5():
     if os.path.exists("LAB01-TASK05.exe"):
         os.remove("LAB01-TASK05.exe")
 
+## Imperative-Programming Repo (Khushaalan)
+def gitUpdate():
+    os.system("git status")
+    os.system("git add -A")
+    os.system("git commit -m 'update'")
+    os.system("git push origin main")
+    os.system("git status")
+
 
 def main(args=None):
     args = args or sys.argv[1:]
@@ -42,11 +50,13 @@ def main(args=None):
             compileTask4()
         elif args[0] == '--5':
             compileTask5()
+        elif args[0] == '--git':
+            gitUpdate()
         else:
-            print("Usage: python makefile.py [--1 | --2 | --3 | --4 | --5]")
+            print("Usage: python MAKEFILE.py [--1 | --2 | --3 | --4 | --5]")
             return
     else:
-        print("Usage: python makefile.py [--1 | --2 | --3 | --4 | --5]")
+        print("Usage: python MAKEFILE.py [--1 | --2 | --3 | --4 | --5]")
         return
 
 
