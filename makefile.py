@@ -1,6 +1,7 @@
 # pylint: disable=all
 import os,sys
-warnings="-w"
+
+
 def compileTask1():
     os.system("gcc -Wall -Wextra LAB01-TASK01.c -o LAB01-TASK01.exe && LAB01-TASK01.exe")
     if os.path.exists("LAB01-TASK01.exe"):
@@ -42,8 +43,11 @@ def main(args=None):
         elif args[0] == '--5':
             compileTask5()
         else:
-            print("Usage: python script.py <task_number>")
+            print("Usage: python makefile.py [--1 | --2 | --3 | --4 | --5]")
             return
+    else:
+        print("Usage: python makefile.py [--1 | --2 | --3 | --4 | --5]")
+        return
 
 
 main()
