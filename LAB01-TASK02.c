@@ -11,12 +11,21 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 #include <stdio.h>
 #include<stdbool.h>
 #include<limits.h>
+#include<math.h>
+
+int roundFunc(float num) {
+    int temp=0;
+    printf("num: %f\n", num);
+    if(num < 0) {
+        temp = (int) (0.5);
+    } 
+}
 
 int main() {
     printf("Enter the temperature in degrees Celsius: ");
     float temperature;  int temp;
     scanf("%f", &temperature);
-    temp = (int) temperature;
+    temp =  roundFunc(temperature);
 
     switch(temp) {
         case INT_MIN ... -1:
