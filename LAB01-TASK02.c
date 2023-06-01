@@ -17,8 +17,13 @@ int roundFunc(float num) {
     int temp=0;
     printf("num: %f\n", num);
     if(num < 0) {
-        temp = (int) (0.5);
-    } 
+        temp = -1;
+    } else if (num < 35) {
+        temp = round(num);
+    } else {
+        temp = 36;
+    }
+    return temp;
 }
 
 int main() {
