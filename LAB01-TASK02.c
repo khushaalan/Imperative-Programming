@@ -15,7 +15,6 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 
 int roundFunc(float num) {
     int temp=0;
-    printf("num: %f\n", num);
     if(num < 0) {
         temp = -1;
     } else if (num < 35) {
@@ -28,8 +27,15 @@ int roundFunc(float num) {
 
 int main() {
     printf("Enter the temperature in degrees Celsius: ");
-    float temperature;  int temp;
-    scanf("%f", &temperature);
+    float temperature;  int temp; char str[10];  bool is_number=false;
+    scanf("%5[^\t\n ]", str);
+    // %5[^\t\n ] -> scan until 5 characters, no tab, no new line, no space
+    is_number= (sscanf(str, "%f", &temperature) == 1? true: false);
+
+    if (is_number==false) {
+        printf("This is not a Valid Score. Please try again.\n");
+        return 0;
+    }
     temp =  roundFunc(temperature);
 
     switch(temp) {
