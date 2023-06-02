@@ -13,46 +13,53 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 #include<limits.h>
 #include<math.h>
 
-int roundFunc(float num) {
-    int temp=0;
+int classify_temperature(float num) {
+    int rounded_temp = 0;
     if(num < 0) {
-        temp = -1;
-    } else if (num < 35) {
-        temp = round(num);
+        rounded_temp = -1;
+    } else if (num <= 35) {
+        rounded_temp = round(num);
     } else {
-        temp = 36;
+        rounded_temp = 36;
     }
-    return temp;
+    return rounded_temp;
 }
 
 int main() {
     printf("Enter the temperature in degrees Celsius: ");
-    float temperature;  int temp; char str[10];  bool is_number=false;
+
+    float temperature;
+    int temp_category;
+    char str[10];
+    bool is_valid = false;
+    
     scanf("%5[^\t\n ]", str);
     // %5[^\t\n ] -> scan until 5 characters, no tab, no new line, no space
-    is_number= (sscanf(str, "%f", &temperature) == 1? true: false);
 
-    if (is_number==false) {
-        printf("This is not a Valid Score. Please try again.\n");
+    is_valid = (sscanf(str, "%f", &temperature) == 1 ? true : false);
+
+    if (is_valid == false) {
+        printf("This is not a Valid Temperature. Please try again.\n");
         return 0;
     }
-    temp =  roundFunc(temperature);
+    temp_category =  classify_temperature(temperature);
 
-    switch(temp) {
+    // Classify the temperature
+    switch(temp_category) {
         case INT_MIN ... -1:
-            printf("The entered temperature is Freezing\n");
+            printf("The entered temperature is freezing\n");
             break;
         case 0 ... 10:
-            printf("The entered temperature is Cold\n");
+            printf("The entered temperature is cold\n");
             break;
         case 11 ... 25:
-            printf("The entered temperature is Moderate\n");
+            printf("The entered temperature is moderate\n");
             break;
         case 26 ... 35:
-            printf("The entered temperature is Hot\n");
+            printf("The entered temperature is hot\n");
             break;
         case 36 ... INT_MAX:
-            printf("The entered temperature is Extreme\n");
+            printf("The entered temperature is extreme\n");
             break;
         default:
             printf("Invalid temperature\n");

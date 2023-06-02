@@ -10,49 +10,49 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 
 #include <stdio.h>
 #include<stdbool.h>
-struct variables{
-    bool is_number;
+
+struct input_score{
+    bool is_valid;
     float score;
     char str[10];
 };
 
-struct variables isNumber() {
-    struct variables a;
-    a.is_number = true;
-    scanf("%5[^\t\n ]", a.str);
+struct input_score get_valid_score() {
+    struct input_score user_score;
+    user_score.is_valid = true;
+    scanf("%5[^\t\n ]", user_score.str);
 
-    a.is_number = (sscanf(a.str, "%f", &a.score) == 1 ? true : false);
-    return a;
+    user_score.is_valid = (sscanf(user_score.str, "%f", &user_score.score) == 1 ? true : false);
+    return user_score;
 }
 
 int main() {
-    
     printf("Enter your score: ");
 
+    struct input_score score = get_valid_score();
 
-    if (isNumber().is_number==false) {
+    if (score.is_valid==false) {
         printf("This is not a Valid Score. Please try again.\n");
         return 0;
     }
 
-
-    if (isNumber().score >= 0 && isNumber().score <= 100) {
-        if (isNumber().score >= 90 && isNumber().score <= 100) {
-            printf("Score: %.1f\nGrade: A+\n", isNumber().score);
-        } else if (isNumber().score >= 80 && isNumber().score < 90) {
-            printf("Score: %.1f\nGrade: A\n", isNumber().score);
-        } else if (isNumber().score >= 70 && isNumber().score < 80) {
-            printf("Score: %.1f\nGrade: B+\n", isNumber().score);
-        } else if (isNumber().score >= 60 && isNumber().score < 70) {
-            printf("Score: %.1f\nGrade: B\n", isNumber().score);
-        } else if (isNumber().score >= 50 && isNumber().score < 60) {
-            printf("Score: %.1f\nGrade: C+\n", isNumber().score);
-        } else if (isNumber().score >= 40 && isNumber().score < 50) {
-            printf("Score: %.1f\nGrade: C\n", isNumber().score);
-        } else if (isNumber().score >= 30 && isNumber().score < 40) {
-            printf("Score: %.1f\nGrade: D\n", isNumber().score);
+    if (score.score >= 0 && score.score <= 100) {
+        if (score.score >= 90 && score.score <= 100) {
+            printf("Score: %.1f\nGrade: A+\n", score.score);
+        } else if (score.score >= 80 && score.score < 90) {
+            printf("Score: %.1f\nGrade: A\n", score.score);
+        } else if (score.score >= 70 && score.score < 80) {
+            printf("Score: %.1f\nGrade: B+\n", score.score);
+        } else if (score.score >= 60 && score.score < 70) {
+            printf("Score: %.1f\nGrade: B\n", score.score);
+        } else if (score.score >= 50 && score.score < 60) {
+            printf("Score: %.1f\nGrade: C+\n", score.score);
+        } else if (score.score >= 40 && score.score < 50) {
+            printf("Score: %.1f\nGrade: C\n", score.score);
+        } else if (score.score >= 30 && score.score < 40) {
+            printf("Score: %.1f\nGrade: D\n", score.score);
         } else {
-            printf("Score: %.1f\nGrade: F\n", isNumber().score);
+            printf("Score: %.1f\nGrade: F\n", score.score);
         }
     } else {
         printf("Invalid Score. Please enter a score between 0 and 100.\n");
