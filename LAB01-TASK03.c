@@ -20,18 +20,22 @@ int main() {
     bool isNegative = false;
     scanf("%" SCNd64, &num);
 
-    
+    // Check if the entered number is negative
+    isNegative = (num < 0 ? true : false);
+
+    // If the number is negative, print an error message and end the program
+    if (isNegative) {
+        printf("Please enter a positive integer. Please try again.\n");
+        return 0;
+    }
+
+    // If the number is positive, calculate the factorial
     for (ll i = 1; i <= num; i++) {
         factorial *= i;
     }
 
-    isNegative = (num < 0 ? true : false);
-    if (isNegative) {
-        printf("Please enter a positive integer. Please try again.\n");
-    } else {
-        printf("Number: %"PRId64"\n", num);
-        printf("Factorial: %"PRId64"\n", factorial);
-    }
+    printf("Number: %"PRId64"\n", num);
+    printf("Factorial: %"PRId64"\n", factorial);
 
     return 0;
 }
