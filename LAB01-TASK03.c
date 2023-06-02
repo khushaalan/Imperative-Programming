@@ -2,11 +2,10 @@
 LAB01-TASK03: Factorial Calculator
 
 Group Members:  1. Khushaalan Arjunan (A190409)
-                2. Wang Rui(A184975)
+                2. Wang Rui (A184975)
                 3. Stuart Heng Fu Yu (A189660)
-                4. Zhao Zhao(A184841)
+                4. Zhao Zhao (A184841)
 
-This program prompts the user to enter a positive integer and calculates its factorial.
 */
 
 #include <stdio.h>

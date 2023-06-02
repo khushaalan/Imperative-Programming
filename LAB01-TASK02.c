@@ -9,16 +9,16 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 */
 
 #include <stdio.h>
-#include<stdbool.h>
-#include<limits.h>
-#include<math.h>
+#include <stdbool.h>
+#include <limits.h>
+#include <math.h>
 
-int classify_temperature(float num) {
+int classify_temperature(float temperature) {
     int rounded_temp = 0;
-    if(num < 0) {
+    if (temperature < 0) {
         rounded_temp = -1;
-    } else if (num <= 35) {
-        rounded_temp = round(num);
+    } else if (temperature <= 35) {
+        rounded_temp = round(temperature);
     } else {
         rounded_temp = 36;
     }
@@ -30,22 +30,22 @@ int main() {
 
     float temperature;
     int temp_category;
-    char str[10];
+    char input_str[10];
     bool is_valid = false;
     
-    scanf("%5[^\t\n ]", str);
-    // %5[^\t\n ] -> scan until 5 characters, no tab, no new line, no space
+    scanf("%5[^\t\n ]", input_str);
 
-    is_valid = (sscanf(str, "%f", &temperature) == 1 ? true : false);
+    is_valid = (sscanf(input_str, "%f", &temperature) == 1 ? true : false);
 
     if (is_valid == false) {
         printf("This is not a Valid Temperature. Please try again.\n");
         return 0;
     }
+
     temp_category =  classify_temperature(temperature);
 
     // Classify the temperature
-    switch(temp_category) {
+    switch (temp_category) {
         case INT_MIN ... -1:
             printf("The entered temperature is freezing\n");
             break;
