@@ -12,15 +12,15 @@ Group Members:  1. Khushaalan Arjunan (A190409)
 #include <stdbool.h>
 #include <inttypes.h>
 
-struct input_num {
+struct NumInput {
     bool is_valid;
     int64_t number;
     char str[10];
 };
 
 // This function validates the input and returns a valid positive integer.
-struct input_num get_valid_number() {
-    struct input_num user_num;
+struct NumInput get_valid_number() {
+    struct NumInput user_num;
     user_num.is_valid = true;
     scanf("%9[^\t\n ]", user_num.str);
 
@@ -31,7 +31,7 @@ struct input_num get_valid_number() {
 int main() {
     printf("Enter a positive integer: ");
 
-    struct input_num number = get_valid_number();
+    struct NumInput number = get_valid_number();
 
     if (!number.is_valid) {
         printf("Invalid input. Please enter a positive integer.\n");

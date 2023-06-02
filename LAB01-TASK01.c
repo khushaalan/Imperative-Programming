@@ -7,18 +7,17 @@ Group Members:  1. Khushaalan Arjunan (A190409)
                 4. Zhao Zhao(A184841)
 
 */
-
 #include <stdio.h>
-#include<stdbool.h>
+#include <stdbool.h>
 
-struct input_score{
+struct ScoreInput {
     bool is_valid;
     float score;
     char str[10];
 };
 
-struct input_score get_valid_score() {
-    struct input_score user_score;
+struct ScoreInput get_valid_score() {
+    struct ScoreInput user_score;
     user_score.is_valid = true;
     scanf("%5[^\t\n ]", user_score.str);
 
@@ -29,10 +28,10 @@ struct input_score get_valid_score() {
 int main() {
     printf("Enter your score: ");
 
-    struct input_score score = get_valid_score();
+    struct ScoreInput score = get_valid_score();
 
-    if (score.is_valid==false) {
-        printf("This is not a Valid Score. Please try again.\n");
+    if (score.is_valid == false) {
+        printf("Invalid score. Please enter a score between 0 and 100.\n");
         return 0;
     }
 
@@ -55,7 +54,7 @@ int main() {
             printf("Score: %.1f\nGrade: F\n", score.score);
         }
     } else {
-        printf("Invalid Score. Please enter a score between 0 and 100.\n");
+        printf("Invalid score. Please enter a score between 0 and 100.\n");
     }
 
     return 0;
