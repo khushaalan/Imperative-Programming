@@ -6,36 +6,47 @@ Group Members:  1. Khushaalan Arjunan (A190409)
                 3. Stuart Heng Fu Yu (A189660)
                 4. Zhao Zhao(A184841)
 
+This program prompts the user to enter a positive integer and calculates its factorial.
 */
 
 #include <stdio.h>
 #include <stdbool.h>
-#define SCNd64 "I64d"
-#define PRId64 "I64d"
-#define ll long long int
+#include <inttypes.h>
+
+struct input_num {
+    bool is_valid;
+    int64_t number;
+    char str[10];
+};
+
+// This function validates the input and returns a valid positive integer.
+struct input_num get_valid_number() {
+    struct input_num user_num;
+    user_num.is_valid = true;
+    scanf("%9[^\t\n ]", user_num.str);
+
+    user_num.is_valid = (sscanf(user_num.str, "%" SCNd64, &user_num.number) == 1 && user_num.number >= 0 ? true : false);
+    return user_num;
+}
 
 int main() {
     printf("Enter a positive integer: ");
-    ll num, factorial = 1;
-    bool isNegative = false;
-    scanf("%" SCNd64, &num);
 
-    // Check if the entered number is negative
-    isNegative = (num < 0 ? true : false);
+    struct input_num number = get_valid_number();
 
-    // If the number is negative, print an error message and end the program
-    if (isNegative) {
-        printf("Please enter a positive integer. Please try again.\n");
+    if (!number.is_valid) {
+        printf("Invalid input. Please enter a positive integer.\n");
         return 0;
     }
 
-    // If the number is positive, calculate the factorial
-    for (ll i = 1; i <= num; i++) {
+    int64_t factorial = 1;
+
+    for (int64_t i = 1; i <= number.number; i++) {
         factorial *= i;
     }
 
-    printf("Number: %"PRId64"\n", num);
-    printf("Factorial: %"PRId64"\n", factorial);
+    printf("Number: %" PRId64 "\n", number.number);
+    printf("Factorial: %" PRId64 "\n", factorial);
 
     return 0;
 }
