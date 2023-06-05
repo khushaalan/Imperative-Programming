@@ -1,4 +1,27 @@
 # pylint: disable=all
+
+"""
+##################################################################################################################################################
+# This is a MAKEFILE for LAB01. 
+# I have turned on all the warnings for the GCC compiler ( -Wall -Wextra )
+# Usage: python MAKEFILE.py [ --1 | --2 | --3 | --4 | --5 | --git ]
+# If you are running this on Linux, you need to amened the code and change the '.exe' to '.out' because Linux couldn't run executable files.
+
+
+#   To compile and run LAB01-TASK01.c use the following command:  
+    python MAKEFILE.py --1
+#   To compile and run LAB01-TASK02.c use the following command:  
+    python MAKEFILE.py --2
+#   To compile and run LAB01-TASK03.c use the following command:  
+    python MAKEFILE.py --3
+#   To compile and run LAB01-TASK04.c use the following command:  
+    python MAKEFILE.py --4
+#   To compile and run LAB01-TASK05.c use the following command:  
+    python MAKEFILE.py --5
+
+######################################################################################################################################################
+"""
+
 import os,sys
 WARNING = "-Wall -Wextra"
 COMMAND =""
