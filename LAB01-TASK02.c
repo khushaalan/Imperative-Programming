@@ -43,12 +43,15 @@ bool is_float(const char* str) {
                 return false;
             }
             point_seen = true;
+        } else if (str[i] == '-' && i == 0) {
+            continue;
         } else if (!isdigit(str[i])) {
             return false;
         }
     }
     return true;
 }
+
 
 /**
  * Classifies the temperature into a category.
@@ -75,20 +78,7 @@ int classify_temperature(float temperature) {
     return rounded_temp;
 }
 
-/**
- * The main function of the program.
- *
- * This function prompts the user to enter a temperature in degrees Celsius.
- * It reads the input as a string, validates if it can be converted to a float,
- * and checks if the input is a valid float using the is_float function.
- * If the input is not valid, an error message is printed, and the program terminates.
- * If the input is valid, the program classifies the temperature into a category
- * using the classify_temperature function and displays the appropriate message
- * indicating the category of the temperature.
- *
- * Returns:
- *     0 on successful execution.
- */
+
 int main() {
     printf("Enter the temperature in degrees Celsius: ");
 

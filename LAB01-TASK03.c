@@ -144,17 +144,7 @@ void calculate_factorial_basic(int64_t number){
     printf("Factorial: %" PRId64 "\n", factorial);
 }
 
-/**
- * The main function of the program.
- *
- * This function prompts the user to enter a positive integer.
- * It retrieves the user's input, validates it, and calculates and displays the factorial.
- * Two methods are used for factorial calculation: basic and optimized.
- * The results are printed to the console.
- *
- * Returns:
- *     0 on successful execution.
- */
+
 int main() {
     printf("Enter a positive integer: ");
     struct NumInput number = get_valid_number();
@@ -164,10 +154,12 @@ int main() {
         return 0;
     }
 
+    printf("----------------------------------------\n");
     printf("Method #1: Basic Factorial Calculation\n");
     calculate_factorial_basic(number.number);
-    printf("This method may produce overflow for inputs greater than 20.\n\n");
+    printf("We first tried this method. but this method produces overflow for inputs greater than 20.\n\n");
 
+    printf("----------------------------------------\n");
     printf("Method #2: Optimized Factorial Calculation\n");
     calculate_factorial_optimized(number.number);
     printf("This method is comprehensive and does not result in overflow for any large inputs.\n");

@@ -45,18 +45,8 @@ bool is_integer(const char* str) {
     return true;
 }
 
-/**
- * The main function of the program.
- *
- * This function generates a random number between 1 and 100 as the target number.
- * It prompts the user to enter a guess and compares the user's guess with the target number.
- * It provides appropriate feedback indicating whether the guess is too high or too low.
- * The loop continues until the user correctly guesses the number.
- * A congratulatory message is displayed when the user guesses the number correctly.
- *
- * Returns:
- *     0 on successful execution.
- */
+
+
 int main(){
 
     srand(time(NULL));

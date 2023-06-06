@@ -161,16 +161,7 @@ char * generateEmployeeID() {
 }
 
 
-/**
- * main() - The entry point of the program.
- *
- * This function prompts the user to enter employee details and calculates
- * the employee's age based on the date of birth. It then displays the
- * employee's details including the generated employee ID.
- *
- * Returns:
- *     0 on successful execution.
- */
+
 int main() {
     //Initialise seed for random number generator
     srand(time(NULL));

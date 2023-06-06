@@ -90,17 +90,7 @@ struct ScoreInput get_valid_score() {
     return user_score;
 }
 
-/**
- * The main function of the program.
- *
- * This function prompts the user to enter their score between 0 and 100.
- * It calls the get_valid_score function to validate the input score.
- * If the input is not valid, an error message is printed, and the program terminates.
- * If the input is valid, the program checks which range the score falls into and prints the score and the corresponding grade.
- *
- * Returns:
- *     0 on successful execution.
- */
+
 int main() {
     /* The user is prompted to enter their score. */
     printf("Enter your score: ");
