@@ -50,7 +50,7 @@ struct ScoreInput get_valid_score() {
     user_score.is_valid = true;
 
     /* First, the function attempts to read the user input as a string up to a newline character. If this fails, the function sets is_valid to false and returns. */
-    if (scanf("%9[^\n]", user_score.str) != 1) {
+    if (scanf("%[^\n]", user_score.str) != 1) {
         user_score.is_valid = false;
         return user_score;
     }
