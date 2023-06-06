@@ -39,7 +39,6 @@
 
 bool is_float(const char* str) {
     bool point_seen = false;
-    // strlen() func returns an unsigned long. So we need to convert it to unsigned 64 bit integer(int64_t)
     for (int64_t i = 0; i < strlen(str); i++) {
         if (str[i] == '.') {
             if (point_seen) {
