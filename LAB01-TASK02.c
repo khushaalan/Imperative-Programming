@@ -1,12 +1,31 @@
-/**********************************************************************
- * LAB01-TASK02: Temperature Classification
+/********************************************************************** * 
+ * Group Members:   1. Khushaalan Arjunan (A190409)
+ *                  2. Wang Rui (A184975)
+ *                  3. Stuart Heng Fu Yu (A189660)
+ *                  4. Zhao Zhao (A184841)
  *
- * Group Members:
- * 1. Khushaalan Arjunan (A190409)
- * 2. Wang Rui (A184975)
- * 3. Stuart Heng Fu Yu (A189660)
- * 4. Zhao Zhao (A184841)
- *
+ * Welcome to our Second Task of the LAB01. Temperature Classification !!! This is a simple C program that
+ * classifies the temperature into one of the five categories: freezing, cold, moderate, hot, or extreme.
+ * 
+ * We need to repeat the same error handling procedures as in LAB01-TASK01.c. Once we validate the input, 
+ * we use a switch statement to check the temperature and print the corresponding category. 
+ * It is stated in the Question that the we MUST use switch statement. Cannot use if-else statement.
+ * Switch statement is only accepts INTEGER data type as the case. So we need to round the temperature to the nearest integer.
+ * But this doesnt apply to the freezing category and extreme category.
+ * 
+ * If the temperature is negative, then we set the category to -1 instead of rounding it to the nearest integer.
+ * If the temperature is greater than 35, then we set the category to 36. because again it doesnt apply to the extreme category.
+ * Let me explain why.
+ * Let's say the temperature is 35.3, we cannot round it to 35. We need to round it to 36. Because the rule is that
+ * if the temperature is greater than 35, then it is extreme. So we need to round it to 36.
+ * Same goes to the freezing category. If the temperature is -0.3, we cannot round it to 0. We need to round it to -1.
+ * Because the rule is that if the temperature is negative, then it is freezing. So we need to round it to -1.
+ * Only when the temperature is between 0 and 35, then we round it to the nearest integer.
+ * 
+ * For the is_float() function, I have amended it to check if the string contains a negative sign at the beginning.
+ * If the string contains a negative sign at the beginning, then it is a valid float.
+ * This will allow us to enter negative temperature. And that's pretty much it for this task.
+ * 
  *
  **********************************************************************/
 
@@ -18,20 +37,9 @@
 #include <string.h>
 #include <inttypes.h>
 
-/**
- * Checks if a given string can be converted to a float.
- *
- * This function validates if the given string can be successfully converted to a float.
- * It checks if the string contains only digits and at most one decimal point.
- *
- * Parameters:
- *     str - The string to be validated.
- *
- * Returns:
- *     true if the string is a valid float, false otherwise.
- */
 bool is_float(const char* str) {
     bool point_seen = false;
+    // strlen() func returns an unsigned long. So we need to convert it to unsigned 64 bit integer(int64_t)
     for (int64_t i = 0; i < strlen(str); i++) {
         if (str[i] == '.') {
             if (point_seen) {
@@ -48,19 +56,6 @@ bool is_float(const char* str) {
 }
 
 
-/**
- * Classifies the temperature into a category.
- *
- * This function takes a temperature as input and classifies it into one of the five categories:
- * freezing, cold, moderate, hot, or extreme. The temperature is rounded to the nearest integer
- * and returned as the category.
- *
- * Parameters:
- *     temperature - The input temperature.
- *
- * Returns:
- *     The rounded temperature as the category.
- */
 int classify_temperature(float temperature) {
     int rounded_temp = 0;
     if (temperature < 0) {
@@ -86,7 +81,6 @@ int main() {
 
     is_valid = (sscanf(input_str, "%f", &temperature) == 1 ? true : false);
     
-    /* Checking if input string is a valid float */
     if (is_valid) {
         is_valid = is_float(input_str);
     }
@@ -115,7 +109,7 @@ int main() {
             printf("The entered temperature is extreme.\n");
             break;
         default:
-            printf("Invalid temperature\n");
+            printf("This is not a Valid Temperature.n");
     }
 
     return 0;

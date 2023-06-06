@@ -4,7 +4,7 @@
  *                  3. Stuart Heng Fu Yu (A189660)
  *                  4. Zhao Zhao (A184841)
  *
- * Welcome to your First Task of the LAB01. Grade Calculator !!! This is a simple C program that
+ * Welcome to our First Task of the LAB01. Grade Calculator !!! This is a simple C program that
  * calculates the grade of a student based on the score entered by the user.
  * 
  * This Question is actually pretty straight forward, we just need to use if-else statement
