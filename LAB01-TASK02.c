@@ -2,14 +2,18 @@
  * LAB01-TASK02: Temperature Classification
  *
  * Group Members:
-                    * 1. Khushaalan Arjunan (A190409)
-                    * 2. Wang Rui (A184975)
-                    * 3. Stuart Heng Fu Yu (A189660)
-                    * 4. Zhao Zhao (A184841)
+ * 1. Khushaalan Arjunan (A190409)
+ * 2. Wang Rui (A184975)
+ * 3. Stuart Heng Fu Yu (A189660)
+ * 4. Zhao Zhao (A184841)
  *
- * 
-**********************************************************************/
-
+ * This program classifies a given temperature into one of five categories:
+ * freezing, cold, moderate, hot, or extreme. It prompts the user to enter
+ * a temperature and displays the corresponding category based on predefined rules.
+ * User input validation and error handling are implemented to ensure the input
+ * falls within the valid range and is a valid float.
+ *
+ **********************************************************************/
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -19,7 +23,18 @@
 #include <string.h>
 #include <inttypes.h>
 
-/* Function to check if a string can be converted to float. */
+/**
+ * Checks if a given string can be converted to a float.
+ *
+ * This function validates if the given string can be successfully converted to a float.
+ * It checks if the string contains only digits and at most one decimal point.
+ *
+ * Parameters:
+ *     str - The string to be validated.
+ *
+ * Returns:
+ *     true if the string is a valid float, false otherwise.
+ */
 bool is_float(const char* str) {
     bool point_seen = false;
     for (int64_t i = 0; i < strlen(str); i++) {
@@ -35,6 +50,19 @@ bool is_float(const char* str) {
     return true;
 }
 
+/**
+ * Classifies the temperature into a category.
+ *
+ * This function takes a temperature as input and classifies it into one of the five categories:
+ * freezing, cold, moderate, hot, or extreme. The temperature is rounded to the nearest integer
+ * and returned as the category.
+ *
+ * Parameters:
+ *     temperature - The input temperature.
+ *
+ * Returns:
+ *     The rounded temperature as the category.
+ */
 int classify_temperature(float temperature) {
     int rounded_temp = 0;
     if (temperature < 0) {
@@ -47,6 +75,20 @@ int classify_temperature(float temperature) {
     return rounded_temp;
 }
 
+/**
+ * The main function of the program.
+ *
+ * This function prompts the user to enter a temperature in degrees Celsius.
+ * It reads the input as a string, validates if it can be converted to a float,
+ * and checks if the input is a valid float using the is_float function.
+ * If the input is not valid, an error message is printed, and the program terminates.
+ * If the input is valid, the program classifies the temperature into a category
+ * using the classify_temperature function and displays the appropriate message
+ * indicating the category of the temperature.
+ *
+ * Returns:
+ *     0 on successful execution.
+ */
 int main() {
     printf("Enter the temperature in degrees Celsius: ");
 
