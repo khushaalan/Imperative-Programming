@@ -91,19 +91,19 @@ int main() {
 
     switch (temp_category) {
         case INT_MIN ... -1:
-            printf("The entered temperature is freezing\n");
+            printf("The entered temperature is freezing.\n");
             break;
         case 0 ... 10:
-            printf("The entered temperature is cold\n");
+            printf("The entered temperature is cold.\n");
             break;
         case 11 ... 25:
-            printf("The entered temperature is moderate\n");
+            printf("The entered temperature is moderate.\n");
             break;
         case 26 ... 35:
-            printf("The entered temperature is hot\n");
+            printf("The entered temperature is hot.\n");
             break;
         case 36 ... INT_MAX:
-            printf("The entered temperature is extreme\n");
+            printf("The entered temperature is extreme.\n");
             break;
         default:
             printf("Invalid temperature\n");

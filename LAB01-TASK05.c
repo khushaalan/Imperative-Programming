@@ -184,7 +184,7 @@ int main() {
     int numofDays[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
     int numofDaysLeap[]={0,31,29,31,30,31,30,31,31,30,31,30,31};
 
-    char name[50],  department[20], dateofbirth[50];
+    char name[1000],  department[1000], dateofbirth[50];
     int day, month, year, isAlphabet=0;
 
 
