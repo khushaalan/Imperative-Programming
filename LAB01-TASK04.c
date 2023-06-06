@@ -9,29 +9,45 @@
  *
  **********************************************************************/
 
+
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
+#include <string.h>
+#include <inttypes.h>
 
 #define MAX_LINE_LENGTH 1024
+
+bool is_integer(const char* str) {
+    for (int64_t i = 0; i < strlen(str); i++) {
+        if (!isdigit(str[i])) {
+            return false;
+        }
+    }
+    return true;
+}
 
 int main(){
 
     srand(time(NULL));
     printf("Welcome to the Guessing Game!\nGuess a number between 1 and 100: ");
-    int guess, answer = rand() % 100 + 1;
+    int answer = rand() % 100 + 1;
     bool correct = false;
-    char line[MAX_LINE_LENGTH];
-    int scanResult;
+    char input_str[10];
+    int guess;
 
     while(!correct){
-        if(fgets(line, MAX_LINE_LENGTH, stdin) == NULL){
-            printf("Error reading input! Please try again: ");
+        scanf(" %[^\t\n ]", input_str); // add a space before the format specifier
+        if (!is_integer(input_str)) {
+            printf("Invalid input! Please enter a number between 1 and 100: ");
             continue;
         }
-        scanResult = sscanf(line, "%d", &guess);
-        if(scanResult < 1 || guess < 1 || guess > 100){
+        sscanf(input_str, "%d", &guess);
+
+        if(guess < 1 || guess > 100){
             printf("Invalid input! Please enter a number between 1 and 100: ");
         }
         else if(guess == answer){
