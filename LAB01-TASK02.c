@@ -7,11 +7,6 @@
  * 3. Stuart Heng Fu Yu (A189660)
  * 4. Zhao Zhao (A184841)
  *
- * This program classifies a given temperature into one of five categories:
- * freezing, cold, moderate, hot, or extreme. It prompts the user to enter
- * a temperature and displays the corresponding category based on predefined rules.
- * User input validation and error handling are implemented to ensure the input
- * falls within the valid range and is a valid float.
  *
  **********************************************************************/
 

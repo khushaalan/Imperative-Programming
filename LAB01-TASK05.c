@@ -1,11 +1,12 @@
 /**********************************************************************
- * LAB01-TASK03: Factorial Calculator
+ * LAB01-TASK05: Scenario Based Question
  *
  * Group Members:
-                    * 1. Khushaalan Arjunan (A190409)
-                    * 2. Wang Rui (A184975)
-                    * 3. Stuart Heng Fu Yu (A189660)
-                    * 4. Zhao Zhao (A184841)
+ * 1. Khushaalan Arjunan (A190409)
+ * 2. Wang Rui (A184975)
+ * 3. Stuart Heng Fu Yu (A189660)
+ * 4. Zhao Zhao (A184841)
+ *
  *
  **********************************************************************/
 

@@ -7,10 +7,6 @@
  * 3. Stuart Heng Fu Yu (A189660)
  * 4. Zhao Zhao (A184841)
  *
- * This program is a number guessing game where the user has to guess a random number
- * between 1 and 100. The program provides feedback to the user indicating whether
- * their guess is too high or too low. The game continues until the user correctly
- * guesses the number.
  *
  **********************************************************************/
 

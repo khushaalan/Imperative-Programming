@@ -7,10 +7,6 @@
  * 3. Stuart Heng Fu Yu (A189660)
  * 4. Zhao Zhao (A184841)
  *
- * This program prompts the user to enter their score between 0 and 100.
- * It then calculates and displays the corresponding grade based on the score.
- * The grade calculation uses an if...else construct to identify the range the score falls into.
- * User input validation and error handling are implemented to ensure input is within the valid range.
  *
  **********************************************************************/
 

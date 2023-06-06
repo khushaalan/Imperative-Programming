@@ -7,10 +7,6 @@
  * 3. Stuart Heng Fu Yu (A189660)
  * 4. Zhao Zhao (A184841)
  *
- * This program calculates the factorial of a positive integer entered by the user.
- * It provides two methods for factorial calculation: basic and optimized.
- * User input validation and error handling are implemented to ensure the input
- * is a positive integer.
  *
  **********************************************************************/
 
