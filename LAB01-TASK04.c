@@ -16,29 +16,6 @@
 
 #define MAX_LINE_LENGTH 1024
 
-/**
- * main() - The entry point of the program.
- *
- * This function implements a guessing game where the user tries to guess a randomly
- * generated number between 1 and 100. 
- * 
- * The function generates a random number using the srand() and rand() functions. 
- * If we do not  set the seed using srand(), the rand() function will generate the same
- * random number every time the program is run.
- * 
- * What I did here is I set the seed to the current time, so that the random number
- * generated will be different every time the program is run.
- * 
- * The user's input is read using fgets() to allow for error checking and prevent buffer overflow.
- * The user's input is then validated, and the program provides feedback based on the input. 
- * 
- * If the user guesses the correct number, a success message is displayed, and the program exits. 
- * If the guess is too high or too low, the user is prompted to guess again. 
- * Invalid inputs or errors in reading input are handled gracefully.
- *
- * Returns:
- *     0 on successful execution.
- */
 int main(){
 
     srand(time(NULL));
