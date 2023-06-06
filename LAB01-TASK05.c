@@ -1,12 +1,15 @@
 /**********************************************************************
  * LAB01-TASK05: Scenario Based Question
- *
- * Group Members:
- * 1. Khushaalan Arjunan (A190409)
- * 2. Wang Rui (A184975)
- * 3. Stuart Heng Fu Yu (A189660)
- * 4. Zhao Zhao (A184841)
- *
+ * Group Members:   1. Khushaalan Arjunan (A190409)
+ *                  2. Wang Rui (A184975)
+ *                  3. Stuart Heng Fu Yu (A189660)
+ *                  4. Zhao Zhao (A184841)
+ * 
+ * Welcome to our Fifth Task of the LAB01.Scenario Based Question !!! This is a simple C program that
+ * generates a random employee ID, calculates the age of the employee, and prints the employee details.
+ * 
+ * We need to repeat the same error handling procedures as in LAB01-TASK03.c. But now we don't really 
+ * need the is_integer() function or the is_float() function.
  *
  **********************************************************************/
 
