@@ -1,13 +1,37 @@
 /**********************************************************************
- * LAB01-TASK03: Factorial Calculator
+ * Group Members:   1. Khushaalan Arjunan (A190409)
+ *                  2. Wang Rui (A184975)
+ *                  3. Stuart Heng Fu Yu (A189660)
+ *                  4. Zhao Zhao (A184841)
  *
- * Group Members:
- * 1. Khushaalan Arjunan (A190409)
- * 2. Wang Rui (A184975)
- * 3. Stuart Heng Fu Yu (A189660)
- * 4. Zhao Zhao (A184841)
- *
- *
+ * Welcome to our Third Task of the LAB01. Factorial Calculator !!! This is a simple C program that
+ * calculates the factorial of a given positive integer.
+ * 
+ * We need to repeat the same error handling procedures as in LAB01-TASK01.c. Once we validate the input,
+ * we use a for loop to calculate the factorial of the given number.
+ * 
+ * But there is a problem. The factorial of a number can be very large. So we need to use a data type that can store large numbers.
+ * We can use the int64_t data type. But even with this data type, the factorial of a number can still be very large.
+ * So we need to use an array to store the digits of the factorial.
+ * 
+ * We first tried the basic method to calculate the factorial. But this method produces overflow for inputs greater than 20.
+ * It started producing overflowed negative numbers. So, I have tried another method called "Multiplication of Large Integers using an Array".
+ * I have learnt this method when i was practicing for competitive programming. This method is comprehensive and does not result in overflow 
+ * for any large inputs.
+ * So, basically what it does is that it uses an array to store the digits of the factorial.
+ * The result array is multiplied iteratively with each number to calculate the factorial.
+ * 
+ * Let's just say we want to calculate the factorial of 5.
+ * So, we first initialize the result array with 1. So, the result array will be [1].
+ * Then we multiply the result array with 2. So, the result array will be [2].
+ * Then we multiply the result array with 3. So, the result array will be [6].
+ * Then we multiply the result array with 4. So, the result array will be [4, 2].
+ * Then we multiply the result array with 5. So, the result array will be [0, 2, 1].
+ * 
+ * So, the factorial of 5 is 120. And the result array is [0, 2, 1]. Then, we print the result array in reverse order.
+ * Note:: I have used SCNd64 && PRId64 instead of %d to print the int64_t data type. int64_t is a signed 64-bit integer type and it can handle large numbers.
+ * 
+ * 
  **********************************************************************/
 
 #include <stdio.h>
@@ -16,18 +40,6 @@
 #include <ctype.h>
 #include <string.h>
 
-/**
- * Checks if a given string represents a positive integer.
- *
- * This function validates if the given string contains only digits,
- * indicating it represents a positive integer.
- *
- * Parameters:
- *     str - The string to be validated.
- *
- * Returns:
- *     true if the string represents a positive integer, false otherwise.
- */
 bool is_integer(const char* str) {
     for (int64_t i = 0; i < strlen(str); i++) {
         if (!isdigit(str[i])) {
@@ -37,28 +49,13 @@ bool is_integer(const char* str) {
     return true;
 }
 
-/**
- * Structure to store the user's input number.
- *
- * This structure contains a flag indicating the validity of the input,
- * the parsed positive integer value, and the string representation of the input.
- */
 struct NumInput {
     bool is_valid;
     int64_t number;
     char str[10];
 };
 
-/**
- * Retrieves a valid positive integer from the user.
- *
- * This function prompts the user to enter a positive integer.
- * It reads the input as a string, validates if it can be converted to a positive integer,
- * and checks if the input is a valid positive integer using the is_integer function.
- *
- * Returns:
- *     A NumInput structure containing the validity flag, parsed positive integer, and string representation of the input.
- */
+
 struct NumInput get_valid_number() {
     struct NumInput user_num;
     scanf("%9[^\t\n ]", user_num.str);
@@ -69,17 +66,7 @@ struct NumInput get_valid_number() {
     return user_num;
 }
 
-/**
- * Multiplies the result array by a number.
- *
- * This function performs multiplication of the result array with a given number.
- * It handles carry and updates the size of the result array accordingly.
- *
- * Parameters:
- *     result - The result array to be multiplied.
- *     num - The number to multiply with.
- *     size - Pointer to the size of the result array.
- */
+
 void multiply(int64_t result[], int64_t num, int64_t* size) {
     int64_t carry = 0;
     for (int64_t i = 0; i < *size; i++) {
@@ -94,17 +81,7 @@ void multiply(int64_t result[], int64_t num, int64_t* size) {
     }
 }
 
-/**
- * Calculates the factorial of a number using an optimized method.
- *
- * This function calculates the factorial of a given number using an optimized method.
- * It avoids potential overflow by using an array to store the digits of the factorial.
- * The result array is multiplied iteratively with each number to calculate the factorial.
- * The calculated factorial is then printed to the console.
- *
- * Parameters:
- *     number - The positive integer for which the factorial is to be calculated.
- */
+
 void calculate_factorial_optimized(int64_t number) {
     int64_t result[100000];
     result[0] = 1;
@@ -121,16 +98,6 @@ void calculate_factorial_optimized(int64_t number) {
     printf("\n");
 }
 
-/**
- * Calculates the factorial of a number using a basic method.
- *
- * This function calculates the factorial of a given number using a basic method.
- * It uses a simple for loop to multiply each number to calculate the factorial.
- * The calculated factorial is then printed to the console.
- *
- * Parameters:
- *     number - The positive integer for which the factorial is to be calculated.
- */
 void calculate_factorial_basic(int64_t number){
     int64_t factorial = 1;
     for(int64_t i = 1; i <= number; i++) {
