@@ -19,7 +19,12 @@ typedef struct {
     int day;
     int month;
     int year;
-} Date, DetailedAge;
+} Date;
+
+typedef struct {
+    int year;
+    int day;
+} DetailedAge;
 
 
 /**
@@ -124,6 +129,7 @@ int calculateDays(Date dob, Date current) {
 DetailedAge calculateAge(char dateofbirth[]) {
     DetailedAge detailed_age;
     Date dob;
+
     if (sscanf(dateofbirth, "%d %d %d", &dob.day, &dob.month, &dob.year) != 3) {
         printf("Invalid date format\n");
     }

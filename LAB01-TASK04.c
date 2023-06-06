@@ -1,15 +1,18 @@
 /**********************************************************************
- * LAB01-TASK03: Guessing Game
+ * LAB01-TASK04: Guessing Game
  *
  * Group Members:
-                    * 1. Khushaalan Arjunan (A190409)
-                    * 2. Wang Rui (A184975)
-                    * 3. Stuart Heng Fu Yu (A189660)
-                    * 4. Zhao Zhao (A184841)
+ * 1. Khushaalan Arjunan (A190409)
+ * 2. Wang Rui (A184975)
+ * 3. Stuart Heng Fu Yu (A189660)
+ * 4. Zhao Zhao (A184841)
+ *
+ * This program is a number guessing game where the user has to guess a random number
+ * between 1 and 100. The program provides feedback to the user indicating whether
+ * their guess is too high or too low. The game continues until the user correctly
+ * guesses the number.
  *
  **********************************************************************/
-
-
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -21,6 +24,18 @@
 
 #define MAX_LINE_LENGTH 1024
 
+/**
+ * Checks if a given string represents an integer.
+ *
+ * This function validates if the given string contains only digits,
+ * indicating it represents an integer.
+ *
+ * Parameters:
+ *     str - The string to be validated.
+ *
+ * Returns:
+ *     true if the string represents an integer, false otherwise.
+ */
 bool is_integer(const char* str) {
     for (int64_t i = 0; i < strlen(str); i++) {
         if (!isdigit(str[i])) {
@@ -30,13 +45,25 @@ bool is_integer(const char* str) {
     return true;
 }
 
+/**
+ * The main function of the program.
+ *
+ * This function generates a random number between 1 and 100 as the target number.
+ * It prompts the user to enter a guess and compares the user's guess with the target number.
+ * It provides appropriate feedback indicating whether the guess is too high or too low.
+ * The loop continues until the user correctly guesses the number.
+ * A congratulatory message is displayed when the user guesses the number correctly.
+ *
+ * Returns:
+ *     0 on successful execution.
+ */
 int main(){
 
     srand(time(NULL));
     printf("Welcome to the Guessing Game!\nGuess a number between 1 and 100: ");
     int answer = rand() % 100 + 1;
     bool correct = false;
-    char input_str[10];
+    char input_str[MAX_LINE_LENGTH];
     int guess;
 
     while(!correct){
