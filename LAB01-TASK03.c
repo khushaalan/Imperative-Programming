@@ -7,8 +7,10 @@
  * Welcome to our Third Task of the LAB01. Factorial Calculator !!! This is a simple C program that
  * calculates the factorial of a given positive integer.
  * 
- * We need to repeat the same error handling procedures as in LAB01-TASK01.c. Once we validate the input,
- * we use a for loop to calculate the factorial of the given number.
+ * We need to repeat the same error handling procedures as in LAB01-TASK01.c. 
+ * The only difference is that we need to check if the given input is a positive integer. So, we are no more using the is_float() function.
+ * We are using the is_integer() function instead. The is_integer() function checks if the given string contains only digits.
+ * Once we validate the input, we use a for loop to calculate the factorial of the given number.
  * 
  * But there is a problem. The factorial of a number can be very large. So we need to use a data type that can store large numbers.
  * We can use the int64_t data type. But even with this data type, the factorial of a number can still be very large.
